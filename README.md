@@ -18,7 +18,7 @@ Nori's LEDress Prom 2k17, related to LighTIE 16
 	- random color on 2nd Neopixel
 - GET /CLEAR
 	- Clear strip
-- GET /FILL#hex
-	- fills strip with hex color
+- GET /FILLr,g,b
+	- fills strip with (r,g,b) color
 
 elea(nori) & ragulbalaji 2017
