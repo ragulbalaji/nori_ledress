@@ -16,6 +16,20 @@ def handleREQ(r):
 		c = ( stoi(t[0]), stoi(t[1]), stoi(t[2]) )
 		np.fill(c)
 		np.write()
+	elif(r.startswith("/HEARTSTART")):
+		while True:
+			for i in range(-255, 255, 10):                                                                                                            
+				np.fill((abs(i),abs(i),abs(i)))                                                                                                       
+				np.write()                                                                                                                            
+				time.sleep(0.1)
+	elif(r.startswith("/SPARKSTART")):
+		while True:
+			led = min(urandom.getrandbits(5), 19)
+			np.fill((0,0,0))
+			for i in range(-255, 255, 10):                                                                                                            
+				np[led] = (abs(i),abs(i),abs(i))                                                                                                    
+				np.write()                                                                                                                            
+				time.sleep(0.02)
 	elif(r.startswith("/CLEAR")):
 		np.fill((0,0,0))
 		np.write()
