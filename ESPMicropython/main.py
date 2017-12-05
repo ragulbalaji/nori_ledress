@@ -1,7 +1,9 @@
 import machine, neopixel, socket, time, urandom, math
 machine.freq(160000000)
 
-np = neopixel.NeoPixel(machine.Pin(15), 20)
+numLEDs = 10
+
+np = neopixel.NeoPixel(machine.Pin(15), numLEDs)
 
 # Green Init Light
 np[1] = (0, 128, 0)
@@ -24,7 +26,7 @@ def handleREQ(r):
 				time.sleep(0.1)
 	elif(r.startswith("/SPARKSTART")):
 		while True:
-			led = min(urandom.getrandbits(5), 19)
+			led = urandom.getrandbits(4) % numLEDs
 			np.fill((0,0,0))
 			for i in range(-255, 255, 10):                                                                                                            
 				np[led] = (abs(i),abs(i),abs(i))                                                                                                    
