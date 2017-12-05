@@ -1,7 +1,7 @@
 import machine, neopixel, socket, time, urandom, math
 machine.freq(160000000)
 
-numLEDs = 10
+numLEDs = 8
 
 np = neopixel.NeoPixel(machine.Pin(15), numLEDs)
 
